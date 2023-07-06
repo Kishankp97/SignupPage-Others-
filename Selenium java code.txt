@@ -1,0 +1,42 @@
+package selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class SignupPage {
+    public static void main(String[] args) {
+        // Set the path to the chromedriver executable
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\kishan\\chromedriver.exe");
+
+        // Create an instance of ChromeDriver
+        ChromeDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+
+        // Launch the website
+        driver.get("https://auth.dev.vntech.io/");
+        try {
+        Thread.sleep(3000);
+        }
+        catch(InterruptedException ie) {
+        }
+        WebElement button = driver.findElement(By.xpath("\r\n"
+        		+ "/html/body/div[3]/div[3]/div/div/div[1]/div/div/div/div/div[4]/button"));
+        button.click();
+        // clicking on signup page
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div/div/div/div[5]/p/a")).click();
+        // clicking on others signup
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div/div/div/div[4]/div[1]/div/div/div/div")).click();
+     // finding the firstname,lastname,emailinput fields & passing values 
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div/div/div/div[4]/div[2]/div/div/div/form/div[1]/div[1]/div/input")).sendKeys("test");
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div/div/div/div[4]/div[2]/div/div/div/form/div[1]/div[2]/div/input")).sendKeys("Account");
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div/div/div/div[4]/div[2]/div/div/div/form/div[2]/input")).sendKeys("lefij49510@nasskar.com");
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div/div/div/div[4]/div[2]/div/div/div/form/button")).click();
+        driver.close();
+            }
+    }
+
+         
+    
